@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using WebPush.Util;
 
+[assembly: InternalsVisibleTo("WebPush.Test")]
 namespace WebPush
 {
     public class WebPushClient
@@ -115,7 +117,7 @@ namespace WebPush
 
             if (options != null)
             {
-                var validOptionsKeys = new List<string> {"headers", "gcmAPIKey", "vapidDetails", "TTL"};
+                var validOptionsKeys = new List<string> { "headers", "gcmAPIKey", "vapidDetails", "TTL" };
                 foreach (var key in options.Keys)
                 {
                     if (!validOptionsKeys.Contains(key))
@@ -167,7 +169,7 @@ namespace WebPush
                     }
 
                     //at this stage ttl cannot be null.
-                    timeToLive = (int) ttl;
+                    timeToLive = (int)ttl;
                 }
             }
 
@@ -344,7 +346,7 @@ namespace WebPush
             }
 
             // Error
-            var message = @"Received unexpected response code: " + (int) response.StatusCode;
+            var message = @"Received unexpected response code: " + (int)response.StatusCode;
             switch (response.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
