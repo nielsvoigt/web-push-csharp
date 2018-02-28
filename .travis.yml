@@ -10,4 +10,7 @@ script:
   - dotnet build --framework=netcoreapp1.0
   - dotnet build --framework=netcoreapp1.1
   - dotnet build --framework=netcoreapp2.0
+  - dotnet build --framework=net45
+  - dotnet build --framework=net46
+  - dotnet build --framework=net47
   - dotnet test --framework=netcoreapp2.0 WebPush.Test/WebPush.Test.csproj
